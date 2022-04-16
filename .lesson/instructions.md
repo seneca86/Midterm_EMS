@@ -58,28 +58,28 @@ Path(directory).mkdir(parents=True, exist_ok=True)
 
 ## Exercise 2: logistic regression with statsmodels [25 pts]
 
-(a) [5 pts] Load the `planets` dataset from `seaborn`.
+(a) [5 pts] Load the `mpg` dataset from `seaborn`.
 
-(b) [5 pts] Create a new column called `twentyfirst_century` that is equal to `1` when the planet has been discovered in the 21st century and `0` otherwise.
+(b) [5 pts] Create a new column called `usa` that is equal to `1` when the car has been manufactured in the US and `0` otherwise.
 
-(c) [5 pts] With `statsmodels`, buils a logistic regression model that takes the orbital period, the mass, and the distance as regressors and predicts whether a planet was likely to be discovered in the 21st century (versus 20th century). Get the summary of the results of the model.
+(c) [5 pts] With `statsmodels`, build a logistic regression model that takes the weight and the number of cylinders of the car as regressors and predicts whether a car was likely to be have been manufactured in the US (versus in the rest of the world). Get the summary of the results of the model.
 
-(d) [5 pts] Build a dataframe that contains data for a hypothetical new planet with orbital period of `100`, mass of `1`, and distance of `100`.
+(d) [5 pts] Build a dataframe that contains data for a hypothetical car that weights 3000 units and has 4 cylinders.
 
-(e) [5 pts] Predict the chances that this planet has been discovered in the 21st century (versus in the 20th).
+(e) [5 pts] Predict the chances that this car has been manufactured in the US (versus in the rest of the world).
 
 ## Exercise 3: time series [35 pts]
 
-(a) [5 pts] Read the file `AirQualityUCI.csv`, which is in the `lesson/assets` folder. Specify that the separator is a semicolon.
+(a) [5 pts] Read the file `daily-min-temperatures.csv`, which is in the `lesson/assets` folder. Specify the separator.
 
-(b) [5 pts] Transform the `Date` column into date format with the `to_datetime` command from `pandas`.
+(b) [5 pts] Transform the column with the date into date format with the `to_datetime` command from `pandas`.
 
-(c) [5 pts] Sort the values of the dataframe by date, and apply a filter to get only the datapoints with dates after "2004-04-01" and before "2004-12-31".
+(c) [5 pts] Sort the values of the dataframe by date, and apply a filter to get only the datapoints with dates after "1982-01-01" and before "1989-12-31".
 
-(d) [5 pts] Create a copy of the dataframe and apply an exponential smoothing with span equal to 30 to the column `NOx(GT)`; you may overwrite the `NOx(GT)` column or create a new one.
+(d) [5 pts] Create a copy of the dataframe and apply an exponential smoothing with span equal to 30 to the column `temp`; you may overwrite the `temp` column or create a new one.
 
-(e) [5 pts] Plot the original `NOx(GT)` column against the exponentially smoothed one, in different colors.
+(e) [5 pts] Plot the original `temp` column against the exponentially smoothed one, in different colors.
 
 (f) [5 pts] Plot the autocorrelation plot of the smoothed column.
 
-(g) [5 pts] Use `autoarima` from `pmdarima` to find the optimal arima model for the smoothed `NOx(GT)`. Embed the code into a `StepwiseContext` loop to avoid overuse of the CPU. Print a summary of the results.
+(g) [5 pts] Use `autoarima` from `pmdarima` to find the optimal arima model for the smoothed `temp`. Embed the code into a `StepwiseContext` loop to avoid overuse of the CPU. Print a summary of the results.

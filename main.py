@@ -74,42 +74,42 @@ plt.legend()
 plt.savefig(f"{directory}/scatter.png")
 # %% Ex 2
 
-planets = sns.load_dataset("planets")
+mpg = sns.load_dataset("mpg")
 # %%
-planets["twentyfirst_century"] = (planets.year > 2000) * 1
+mpg["usa"] = (mpg.origin == "usa") * 1
 # %%
 model = smf.logit(
-    "twentyfirst_century ~ orbital_period + mass + distance", data=planets
+    "usa ~ weight + cylinders", data=mpg
 )
 results = model.fit()
 results.summary()
 # %%
-new_planet = pd.DataFrame(
-    data={"orbital_period": [100], "mass": [1], "distance": [100]}
+new_car = pd.DataFrame(
+    data={"weight": [3000], "cylinders": [4]}
 )
 # %%
-y = results.predict(new_planet)
+y = results.predict(new_car)
 # %%
 print(
-    f"the chances of discovering such a planet in the 21st c. (vs in the 20th) are {y[0]}"
+    f"the chances of this car being made in the US (vs other parts of the world) are {y[0]}"
 )
 
 # %% Ex 3
-air = pd.read_csv(".lesson/assets/AirQualityUCI.csv", sep=";")
-air["Date"] = pd.to_datetime(air["Date"])
-air = air.sort_values("Date").query('Date > "2004-04-01"').query('Date < "2004-12-31"')
-smooth_air = air.copy()
-smooth_air["NOx(GT)"] = air["NOx(GT)"].ewm(span=30).mean()
+temp = pd.read_csv(".lesson/assets/daily-min-temperatures.csv", sep=",")
+temp["date"] = pd.to_datetime(temp["date"])
+temp = temp.sort_values("date").query('date > "1982-01-01"').query('date < "1989-12-31"')
+smooth_temp = temp.copy()
+smooth_temp["temp"] = temp["temp"].ewm(span=30).mean()
 # %%
-plt.plot(air["Date"], air["NOx(GT)"], label="nox", color="gray")
-plt.plot(smooth_air["Date"], smooth_air["NOx(GT)"], label="nox ewma", color="darkred")
+plt.plot(temp["date"], temp["temp"], label="temp", color="gray")
+plt.plot(smooth_temp["date"], smooth_temp["temp"], label="temp ewma", color="darkred")
 plt.legend()
 plt.savefig("plots/ewma.png")
 # %%
-pd.plotting.autocorrelation_plot(smooth_air["NOx(GT)"])
+pd.plotting.autocorrelation_plot(smooth_temp["temp"])
 # %%
 with pm.StepwiseContext(max_dur=15):
-    model = pm.auto_arima(smooth_air["NOx(GT)"], stepwise=True, error_action="ignore")
-results = model.fit(smooth_air["NOx(GT)"])
+    model = pm.auto_arima(smooth_temp["temp"], stepwise=True, error_action="ignore")
+results = model.fit(smooth_temp["temp"])
 print(results.summary())
 # %%
