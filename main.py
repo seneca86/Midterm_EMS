@@ -106,10 +106,11 @@ plt.plot(smooth_temp["date"], smooth_temp["temp"], label="temp ewma", color="dar
 plt.legend()
 plt.savefig("plots/ewma.png")
 # %%
-pd.plotting.autocorrelation_plot(smooth_temp["temp"])
+mooth_temp = temp.copy()
+smooth_temp["temp"] = temp["temp"].ewm(span=30).mean()
 # %%
-with pm.StepwiseContext(max_dur=15):
-    model = pm.auto_arima(smooth_temp["temp"], stepwise=True, error_action="ignore")
-results = model.fit(smooth_temp["temp"])
-print(results.summary())
+plt.plot(temp["date"], temp["temp"], label="temp", color="gray")
+plt.plot(smooth_temp["date"], smooth_temp["temp"], label="temp rolling", color="darkred")
+plt.legend()
+plt.savefig("plots/rolling.png")
 # %%
