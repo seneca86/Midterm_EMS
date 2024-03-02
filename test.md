@@ -2,7 +2,7 @@
 ## Instructions
 * There is one and only one correct answer per question
 * Fill out the answers sheet: only that sheet will be graded
-* You will need to return the question sheet, but whatever you write on it will be disregarded
+* You will need to return the question sheets, but whatever you write on it will be disregarded
 * All questions are worth the same
 * Correct answers are worth +1
 * Wrong answers are worth -1
@@ -14,7 +14,7 @@
 
 - a) Dividing the true positives by the true negatives
 - b) Dividing the true positives by the false positives
-- c) Dividing the sum of the true positives and the true negatives by the total 
+- c) Dividing the sum of the true positives and the true negatives by the total number of cases
 - d) Dividing the sum of the false positives and the true negatives by the sum of the true negatives 
 
 2. Choose the right import statement of the ‘car_crashes’ dataset from the `seaborn` package:
@@ -58,8 +58,8 @@ Below you can find a sample of the `diamonds` dataset:
 - c) `diamonds.color_values()`
 - d) `diamonds.value_counts(color)`
 
-7. Based on the summary statistic of Question 5, what would be the value corresponding to the 30th percentile?
-- a) Less than `326`
+7. Based on the summary statistic of Question 5, where would the value corresponding to the 30th percentile be?
+- a) Below than `326`
 - b) Between `326.0` and `878.0`
 - c) Between `4678.5` and `18806.0`
 - d) Between `878.0` and `1810.0`
@@ -77,16 +77,18 @@ Below you can find a sample of the `diamonds` dataset:
 - d) `diamonds = diamonds.assign(volume = lambda df: df.x * df.y * df.z)`
 
 10. Obtain a descriptive analysis of the `price` column that includes the number of elements, quantiles, etc:
-  a. `diamonds.price.stats()`
-  b. `diamonds.price.describe()`
-  c. `diamonds[‘price’].analyse()`
-  d. `diamonds.price`
+* a) `diamonds.price.stats()`
+* b) `diamonds.price.describe()`
+* c) `diamonds[‘price’].analyse()`
+* d) `diamonds.price`
 
-11. The following is one row extracted from the `diamonds` dataset. What would be the result of the sum of columns `x` and `y` for this row? 
+11. Below is one row extracted from the `diamonds` dataset. What would be the result of the sum of columns `x` and `y` for this row? 
 - a) `NaN`
 - b) `3.95`
 - c) `0`
 - d) `6.38`
+
+![One row](images/one_row.png)
 
 12. Which of the following charts display a histogram of the `price` variable?
 
@@ -144,14 +146,14 @@ def LeastSquares(xs, ys):
 - d) None are correct
 
 16. The above function is applied to the ‘carat’ and ‘price’ columns in order to find a correlation between them:
-`inter, slope = LeastSquares(diamonds.carat, diamonds.price)`. Based on the above estimated intercept & slope for the columns `carat` and `price`, let’s build a column called `fit_carat` that contains the model fit for `price` for the datapoints in the dataset:
+`inter, slope = LeastSquares(diamonds.carat, diamonds.price)`. Based on the above estimated intercept & slope for the columns `carat` and `price`, select that command that builds a column called `fit_carat` that contains the model fit for `price` for the data points in the dataset:
 
 - a) `diamonds["fit_carat"] = inter * diamonds['carat'] * slope`
 - b) `diamonds["fit_carat"] = inter * diamonds['carat'] + slope`
 - c) `diamonds["fit_carat"] = inter + slope * diamonds['carat']`
 - d) `diamonds["fit_carat"] = inter + slope + diamonds['carat']`
 
-17. Which of the following is correct:
+17. Which of the following is correct?
 * a) The residuals are the differences between the observed values and the mean of the dependent variable.
 * b) The residuals are the sum of the observed values and the predicted values
 * c) The residuals of a linear model are the differences between the observed values and the values predicted
@@ -218,7 +220,7 @@ def LeastSquares(xs, ys):
 * d) An outlier is the most common value in a dataset, representing the typical or average observation.
 
 22. The following command obtains the 10 largest price numbers of the diamonds dataset when `cut` variable equals to `Ideal`:
-`diamonds.query(“cut == ‘Ideal’”).nlargest(10, ‘price’).loc[:, ‘price’])`. Would you say, based on the output, that there is an outlier?
+`diamonds.query(“cut == ‘Ideal’”).nlargest(10, ‘price’).loc[:, ‘price’])`. Would you say, based on the figure below, that there is an outlier?
 
 ![Output](images/outlier.png)
 
@@ -234,9 +236,9 @@ def LeastSquares(xs, ys):
 * d) Describe the variability of a distribution.
 
 24. What’s the correct formula of the mean statistic?
-* a) $\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i$
-* b) $\bar{x} = \frac{1}{n-1}\sum_{i=1}^{n}x_i$
-* c) $\bar{x} = \frac{1}{n}\sum_{i=1}^{n-1}x_i$
+* a) $\bar{x} = \frac{1}{n-1}\sum_{i=1}^{n}x_i$
+* b) $\bar{x} = \frac{1}{n}\sum_{i=1}^{n-1}x_i$
+* c) $\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i$
 * d) $\bar{x} = \frac{1}{n}\sum_{i=0}^{n}y_i$
 
 25. The standard deviation can be conceived as: (B)
@@ -249,7 +251,7 @@ In the following questions we will be using the dataset `mpg` from the seaborn p
 
 ![mpg dataset](images/mpg.png)
 
-26. We want to create a binary variable where 1 represents to USA as ‘origin’ while 0 represents any other possibility. This variable will be encoded under the name ‘is_usa’. The correct prompt is:
+26. We want to create a binary variable where cars originated in `usa` are encoded as `1` and cars originated elsewhere are encoded as `0`. This variable will be called `is_usa`. The correct command is:
 * a) `mpg[‘is_usa’] = (mpg.origin == ‘usa’) * 1`
 * b) `mpg[‘is_usa’] = ‘usa’ * 1`
 * c) `mpg[‘is_usa’] = ‘usa’ * 0`
@@ -266,10 +268,10 @@ In the following questions we will be using the dataset `mpg` from the seaborn p
 * c) Right
 * d) None is correct
 
-28. Based on the above chart, what type of statistical relationship appears to be the one between the variable `horsepower` and `cylinder`? 
-* a) Non-linearly growing: horsepower increases with the number of cylinders.
-* b) Linearly decreasing: horsepower decreases with the numbers of cylinders since they are less efficient in distributing the power.
-* c) Normally distributed: horsepower reaches its peak at 80 cylinders.
+28. Based on the above charts, what type of statistical relationship appears to be the one between the variable `horsepower` and `cylinder`? 
+* a) Linearly decreasing: horsepower decreases with the numbers of cylinders since they are less efficient in distributing the power.
+* b) Normally distributed: horsepower reaches its peak at 80 cylinders.
+* c) Non-linearly growing: horsepower increases with the number of cylinders.
 * d) Non-linearly growing: horsepower decreases from 50 to 225 as the number of cylinder increases.
 
 29. Is there a linear relationship between ‘mpg’ & ‘horsepower’ based on the charts ?
@@ -279,10 +281,10 @@ In the following questions we will be using the dataset `mpg` from the seaborn p
 * d) Yes, since there is a constant decline on the miles per gallon as the horsepower increases.
 
 30. What distinguishes multiple linear regression from simple linear regression?
-* a) Multiple linear regression involves more than one independent variable, while simple linear regression involves only one.
-* b) Multiple linear regression is always more accurate than simple linear regression.
-* c) Simple linear regression can handle categorical variables, while multiple linear regression cannot.
-* d) Multiple linear regression does not work with small datasets.
+* a) Multiple linear regression is always more accurate than simple linear regression.
+* b) Simple linear regression can handle categorical variables, while multiple linear regression cannot.
+* c) Multiple linear regression does not work with small datasets.
+* d) Multiple linear regression involves more than one independent variable, while simple linear regression involves only one.
 
 31. Now we want to study the impact of the variables `horsepower` and `acceleration` on the miles per galloon `mpg`. What formula would you use?
 * a) `acceleration ~ mpg + horsepower`
@@ -290,7 +292,7 @@ In the following questions we will be using the dataset `mpg` from the seaborn p
 * c) `mpg ~ horsepower + acceleration`
 * d) `y ~ mpg + horsepower + acceleration`
 
-32. We have fitted the above model with the `smf.ols` function from the `statsmodel` package. Choose the correct statement that defines the formula of the multiple linear regression:
+32. We have fitted the above model with the `smf.ols` function from the `statsmodel` package. Choose the correct statement that defines the formula for the multiple linear regression:
 
 ![Results from OLS](images/ols.png)
 
@@ -299,7 +301,7 @@ In the following questions we will be using the dataset `mpg` from the seaborn p
 * c) `f(horsepower, acceleration) = 52,55 + 0,18·horsepower + 0,6·acceleration`
 * d) `f(horsepower, acceleration) = 52,55 - 0,18·horsepower - 0,6·acceleration`
 
-33. Select the correct statements that interprets the formula that evaluates the influence of ‘horsepower’ and ‘acceleration’ over ‘mpg’.
+33. Select the correct statement to interpret the formula that evaluates the influence of ‘horsepower’ and ‘acceleration’ over ‘mpg’.
 * a) For every one-unit increase in acceleration, while also increasing horsepower, the predicted `mpg` is expected to decrease by 0.6 units.
 * b) For every one-unit increase in acceleration, holding horsepower constant, the predicted `mpg` is expected to decrease by 0.6 units.
 * c) For every one-unit increase in horsepower, holding acceleration constant the predicted `mpg` is expected to increase by 0.18 units.
@@ -335,9 +337,9 @@ After training the model we have obtained the statistical summary shown in the f
 
 38. When we add meaningful, independent features to a multiple linear regression:
 * a) The residuals start to capture the non-linear trend underlying the model
-* b) The performance of the model usually improves, at least for a few additional features
-* c) The performance of the model decreases initially, and then increases
-* d) The heteroskedasticity of the residuals starts to increase
+* b) The performance of the model decreases initially, and then increases
+* c) The heteroskedasticity of the residuals starts to increase
+* d) The performance of the model usually improves, at least for a few additional features
 
 We suspect that the relationship of `mpg` with `horsepower` does not follow a linear relationship but rather non-linear one.
 
@@ -347,7 +349,7 @@ We suspect that the relationship of `mpg` with `horsepower` does not follow a li
 * c) `mpg = mpg.assign(horsepower2 = mpg.horsepower x 2)`
 * d) `mpg[‘horsepower2’] ** 2`
 
-40. Which would be the new formula of the equation also considering this quadratic term?
+40. Which would be the new formula of the regression also considering this quadratic term?
 * a) `mpg ~  horsepower * horsepower2 + acceleration`
 * b) `mpg ~ mpg + horsepower + horsepower2`
 * c) `mpg + horsepower2 ~ mpg + acceleration`
@@ -369,7 +371,7 @@ After training this modified (quadratic) version of the model we have obtained t
 * c) To deal with outliers in data
 * d) To ensure that the output is bounded between 0 and 1
 
-43. Build a logistic regression model that takes the `weight` and the number of `cylinders` of the car as regressors and predicts whether a car was likely to be have been manufactured in the US (versus in the rest of the world). The command that will create the model is:
+43. We now want to build a logistic regression model that takes the `weight` and the number of `cylinders` of the car as regressors and predicts whether a car was likely to be have been manufactured in the US (versus in the rest of the world). The command that will create the model is:
 * a) `model = smf.ols(“usa ~ weight + cylinders", data=mpg)`
 * b) `model = smf.logit("weight ~ usa + cylinders", data=mpg)`
 * c) `model = smf.logit("usa ~ weight + cylinders", data=mpg)`
@@ -382,12 +384,12 @@ We have trained the model and obtained the statistical summary of the attached f
 44. Which of the following can be derived from the results?
 * a) The more cylinders a car has, the less likely it is American
 * b) "The heavier the car, the more likely it is American" is the clearest insight
-* c) The probability of the car being American increases with the acceleration
-* d) The less cylinders a car has, the less likely it is American
+* c) The less cylinders a car has, the less likely it is American
+* d) The probability of the car being American increases with the acceleration
 
 45. Based on the p-values:
-* a) Both the weight and the cylinders have explanatory power
-* b) Only the weight has explanatory power
+* a) Only the weight has explanatory power
+* b) Both the weight and the cylinders have explanatory power
 * c) Only the cylinders have explanatory power
 * d) Neither the cylinders or the weight have explanatory power
 
@@ -398,7 +400,7 @@ We have trained the model and obtained the statistical summary of the attached f
 * d) Ordinary Least Squares
 
 47. Imagine that this friend is interested in understanding whether being a first-time mom plays a significant role in the weight of the baby. What would you tell her?
-* a) It does not play a role if the logistic regression `weight ~ birth_order` has coefficient zero
+* a) It does not play a role if the logistic regression `weight ~ birth_order` has p-value of zero
 * b) It might play a role, but it could also be conflated with the effect of the age 
 * c) It might play a role, but only if the p-value of `age` is high enough
 * d) It does not play a role as long as the regression `weight ~ birth_order + age` has a low `R-squared`
@@ -412,8 +414,8 @@ We have trained the model and obtained the statistical summary of the attached f
 49. Which of the following is correct?
 * a) A categorical variable ranges from 0 to 1
 * b) A numerical variable ranges from -1 to 1
-* c) A categorical variable takes discreet values
-* d) A numerical variable takes discreet values
+* c) A categorical variable takes discrete values
+* d) A numerical variable takes discrete values
 
 50. Suppose you want to predict house prices based on features such as square footage, number of bedrooms, and number of bathrooms. What model would you use?
   * a) Poisson regression
