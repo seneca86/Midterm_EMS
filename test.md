@@ -290,4 +290,133 @@ In the following questions we will be using the dataset `mpg` from the seaborn p
 * c) `mpg ~ horsepower + acceleration`
 * d) `y ~ mpg + horsepower + acceleration`
 
-32. 
+32. We have fitted the above model with the `smf.ols` function from the `statsmodel` package. Choose the correct statement that defines the formula of the multiple linear regression:
+
+![Results from OLS](images/ols.png)
+
+* a) `f(horsepower, acceleration) = 52,55*inter + 0,18·horsepower + 0,6·acceleration`
+* b) `f(mpg, acceleration) = -52,55 + 0,18·mpg + 0,6·acceleration`
+* c) `f(horsepower, acceleration) = 52,55 + 0,18·horsepower + 0,6·acceleration`
+* d) `f(horsepower, acceleration) = 52,55 - 0,18·horsepower - 0,6·acceleration`
+
+33. Select the correct statements that interprets the formula that evaluates the influence of ‘horsepower’ and ‘acceleration’ over ‘mpg’.
+* a) For every one-unit increase in acceleration, while also increasing horsepower, the predicted `mpg` is expected to decrease by 0.6 units.
+* b) For every one-unit increase in acceleration, holding horsepower constant, the predicted `mpg` is expected to decrease by 0.6 units.
+* c) For every one-unit increase in horsepower, holding acceleration constant the predicted `mpg` is expected to increase by 0.18 units.
+* d) For every one-unit increase in the intercept, the horsepower causes `mpg` to increase by 52.559 units.
+
+34. Which statistical descriptor would you use to evaluate whether one particular regressor in a multiple regression model is significant?
+* a) R-squared
+* b) p-value
+* c) AIC
+* d) Standard Error
+
+After training the model we have obtained the statistical summary shown in the figure to evaluate its goodness.
+
+![MLR results summary](images/mlr_results.png)
+
+35. Assuming a significance level of 0.05, select the correct statement regarding the coefficient of each variable:
+* a) Both variables have a large p-value and thus their coefficient is assumed to be 0.
+* b) `horsepower` has a low p-value while `acceleration` has a large p-value, therefore only `horsepower` can be considered significant.
+* c) Both variables have a low p-value and therefore their coefficients are both significant.
+* d) `horsepower` has a high p-value while `acceleration` has a low p-value, therefore only `acceleration` can be considered.
+
+36. What does R-squared (coefficient of determination) measure in the context of a linear regression model?
+* a) The proportion of the variance in the dependent variable explained by the independent variable(s).
+* b) The accuracy of the model in predicting future observations.
+* c) The percentage of datapoints correctly predicted by the model.
+* d) The relation between the dependent variables.
+
+37. Based on the R-squared of the fitted model, which of the following statements is correct?
+* a) The R-squared value indicates that our model captures 0.63% of the relationship between variables
+* b) The R-squared value indicates that our model captures 63% of the relationship between variables
+* c) The R-squared value indicates that our model is significant with 63% condifence
+* d) The R-squared value indicates that our model captures 63% of the variables that are relevant
+
+38. When we add meaningful, independent features to a multiple linear regression:
+* a) The residuals start to capture the non-linear trend underlying the model
+* b) The performance of the model usually improves, at least for a few additional features
+* c) The performance of the model decreases initially, and then increases
+* d) The heteroskedasticity of the residuals starts to increase
+
+We suspect that the relationship of `mpg` with `horsepower` does not follow a linear relationship but rather non-linear one.
+
+39. Create a variable named ‘horsepower2’ that captures this quadratic behavior. The correct command is:
+* a) `mpg[‘horsepower2’] = np.sqrt(mpg[‘horsepower’])`
+* b) `mpg = mpg.assign(horsepower2 = mpg.horsepower ** 2)`
+* c) `mpg = mpg.assign(horsepower2 = mpg.horsepower x 2)`
+* d) `mpg[‘horsepower2’] ** 2`
+
+40. Which would be the new formula of the equation also considering this quadratic term?
+* a) `mpg ~  horsepower * horsepower2 + acceleration`
+* b) `mpg ~ mpg + horsepower + horsepower2`
+* c) `mpg + horsepower2 ~ mpg + acceleration`
+* d) `mpg ~ horsepower + horsepower2 + acceleration`
+
+After training this modified (quadratic) version of the model we have obtained the statistical summary to evaluate its goodness.
+
+![Summary of results for quadratic MLR](images/mlr_quadratic.png)
+
+41. Which of the following statements regarding the newly fitted model is true?
+* a) With the quadratic term the model fits the data better than without it
+* b) The quadratic term coefficient can be ignored since the p-value is not significant
+* c) `horsepower` becomes meaningless because its p-value is zero
+* d) The overall performance of the model slightly deteriorates
+
+42. In the formulation of logistic regression, what is the primary purpose of using odds instead of probabilities?
+* a) To model linear relationships between unbounded independent and dependent variables
+* b) To increase the accuracy of the model in predicting categorical outcomes
+* c) To deal with outliers in data
+* d) To ensure that the output is bounded between 0 and 1
+
+43. Build a logistic regression model that takes the `weight` and the number of `cylinders` of the car as regressors and predicts whether a car was likely to be have been manufactured in the US (versus in the rest of the world). The command that will create the model is:
+* a) `model = smf.ols(“usa ~ weight + cylinders", data=mpg)`
+* b) `model = smf.logit("weight ~ usa + cylinders", data=mpg)`
+* c) `model = smf.logit("usa ~ weight + cylinders", data=mpg)`
+* d) `model = smf.ols(“weight ~ usa + cylinders", data=mpg)`
+
+![Summary of results for logistic regression](images/logit.png)
+
+We have trained the model and obtained the statistical summary of the attached figure.
+
+44. Which of the following can be derived from the results?
+* a) The more cylinders a car has, the less likely it is American
+* b) "The heavier the car, the more likely it is American" is the clearest insight
+* c) The probability of the car being American increases with the acceleration
+* d) The less cylinders a car has, the less likely it is American
+
+45. Based on the p-values:
+* a) Both the weight and the cylinders have explanatory power
+* b) Only the weight has explanatory power
+* c) Only the cylinders have explanatory power
+* d) Neither the cylinders or the weight have explanatory power
+
+46. Suppose a friend of yours is pregnant and you want to predict whether the baby is a boy or a girl. What model would you use?
+* a) Linear regression
+* b) Logistic regression
+* c) Poisson regression
+* d) Ordinary Least Squares
+
+47. Imagine that this friend is interested in understanding whether being a first-time mom plays a significant role in the weight of the baby. What would you tell her?
+* a) It does not play a role if the logistic regression `weight ~ birth_order` has coefficient zero
+* b) It might play a role, but it could also be conflated with the effect of the age 
+* c) It might play a role, but only if the p-value of `age` is high enough
+* d) It does not play a role as long as the regression `weight ~ birth_order + age` has a low `R-squared`
+
+48. Which of the following is correct?
+* a) If the probability of something happening is 20%, the odds are 2 to 1
+* b) If the probability of something happening is 50%, the odds are 1 to 1
+* c) If the probability of something happening is 25%, the odds are 1 to 4
+* d) If the probability of something happening is 50%, the odds are 5 to 1
+
+49. Which of the following is correct?
+* a) A categorical variable ranges from 0 to 1
+* b) A numerical variable ranges from -1 to 1
+* c) A categorical variable takes discreet values
+* d) A numerical variable takes discreet values
+
+50. Suppose you want to predict house prices based on features such as square footage, number of bedrooms, and number of bathrooms. What model would you use?
+  * a) Poisson regression
+  * b) Logistic regression
+  * c) Multiple linear regression
+  * d) Heteroskedasticity
