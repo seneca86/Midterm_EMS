@@ -268,7 +268,7 @@ In the following questions we will be using the dataset `mpg` from the seaborn p
 * c) Right
 * d) None is correct
 
-28. Based on the above charts, what type of statistical relationship appears to be the one between the variable `horsepower` and `cylinder`? 
+28. Based on the above charts, what type of *approximate* statistical relationship appears to be the one between the variable `horsepower` and `cylinder`? 
 * a) Linearly decreasing: horsepower decreases with the numbers of cylinders since they are less efficient in distributing the power.
 * b) Normally distributed: horsepower reaches its peak at 80 cylinders.
 * c) Non-linearly growing: horsepower increases with the number of cylinders.
@@ -344,7 +344,7 @@ After training the model we have obtained the statistical summary shown in the f
 We suspect that the relationship of `mpg` with `horsepower` does not follow a linear relationship but rather non-linear one.
 
 39. Create a variable named ‘horsepower2’ that captures this quadratic behavior. The correct command is:
-* a) `mpg[‘horsepower2’] = np.sqrt(mpg[‘horsepower’])`
+* a) `mpg[‘horsepower2’] = np.sqrt([‘horsepower’])`
 * b) `mpg = mpg.assign(horsepower2 = mpg.horsepower ** 2)`
 * c) `mpg = mpg.assign(horsepower2 = mpg.horsepower x 2)`
 * d) `mpg[‘horsepower2’] ** 2`
@@ -372,10 +372,10 @@ After training this modified (quadratic) version of the model we have obtained t
 * d) To ensure that the output is bounded between 0 and 1
 
 43. We now want to build a logistic regression model that takes the `weight` and the number of `cylinders` of the car as regressors and predicts whether a car was likely to be have been manufactured in the US (versus in the rest of the world). The command that will create the model is:
-* a) `model = smf.ols(“usa ~ weight + cylinders", data=mpg)`
-* b) `model = smf.logit("weight ~ usa + cylinders", data=mpg)`
-* c) `model = smf.logit("usa ~ weight + cylinders", data=mpg)`
-* d) `model = smf.ols(“weight ~ usa + cylinders", data=mpg)`
+* a) `model = smf.ols(“is_usa ~ weight + cylinders", data=mpg)`
+* b) `model = smf.logit("weight ~ is_usa + cylinders", data=mpg)`
+* c) `model = smf.logit("is_usa ~ weight + cylinders", data=mpg)`
+* d) `model = smf.ols(“weight ~ is_usa + cylinders", data=mpg)`
 
 ![Summary of results for logistic regression](images/logit.png)
 
