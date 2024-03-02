@@ -152,10 +152,10 @@ def LeastSquares(xs, ys):
 - d) `diamonds["fit_carat"] = inter + slope + diamonds['carat']`
 
 17. Which of the following is correct:
-  a. The residuals are the differences between the observed values and the mean of the dependent variable.
-  b. The residuals are the sum of the observed values and the predicted values
-  c. The residuals of a linear model are the differences between the observed values and the values predicted
-  d. The residuals are the differences between the predicted values and the mean of the independent variable.
+* a) The residuals are the differences between the observed values and the mean of the dependent variable.
+* b) The residuals are the sum of the observed values and the predicted values
+* c) The residuals of a linear model are the differences between the observed values and the values predicted
+* d) The residuals are the differences between the predicted values and the mean of the independent variable.
 
 18. Now we want to define a function that is capable to estimate the residuals of the linear fit. Select the correct definition:
 
@@ -181,26 +181,113 @@ def LeastSquares(xs, ys):
 
 19. Select the correct code-snippet that would allow to draw a scatterplot that includes `price` in the y-axis, and `carat` in the x-axis; plotting both the actual dataset and the fits:
 
-- a) ```{python}
+* a) ```{python}
   plt.scatter(x=“carat”, y="price", data=diamonds, color="blue", label="carat")
   plt.scatter(x="carat", y="fit_carat", data=diamonds, color="cyan", marker="s")
   plt.xlabel("carat")
   plt.ylabel("price")
   plt.legend()
 ```
-- b) ```{python}
+* b) ```{python}
   plt.scatter(x=“price”, y="carat", data=diamonds, color="blue", label="carat")
   plt.scatter(x=“fit_carat", y="carat", data=diamonds, color="cyan", marker="s")
   plt.xlabel("carat")
   plt.ylabel("price")
   plt.legend()
 ```
-- c) ```{python}
+* c) ```{python}
   plt.line(x=“price”, y="cut", data=diamonds, color="blue", label="carat")
   plt.line(x=“fit_carat", y="cut", data=diamonds, color="cyan", marker="s")
   plt.xlabel("carat")
   plt.ylabel("price")
   plt.legend()
 ```
-- d) None is correct
+* d) None is correct
 
+20. What function would you use to store the above `plt` object as a .png figure?
+* a) `plt.storefig(f”{directory}/scatter.png”)`
+* b) `df.savefig(f”{directory}/scatter.png”)`
+* c) `plt.storefig()`
+* d) `plt.savefig(f”{directory}/scatter.png")`
+
+21. Choose which is the correct definition of an outlier in the data: (B)
+
+* a) An outlier is any value in a dataset that is larger than the mean, indicating a superior significance in the analysis.
+* b) An outlier is an observation that significantly deviates from the overall pattern of a dataset, often falling far outside the expected range of values.
+* c) An outlier is an observation that perfectly fits the trend of a dataset, contributing to the overall consistency of the data.
+* d) An outlier is the most common value in a dataset, representing the typical or average observation.
+
+22. The following command obtains the 10 largest price numbers of the diamonds dataset when `cut` variable equals to `Ideal`:
+`diamonds.query(“cut == ‘Ideal’”).nlargest(10, ‘price’).loc[:, ‘price’])`. Would you say, based on the output, that there is an outlier?
+
+![Output](images/outlier.png)
+
+* a) No, because all the values are above 18000, meaning there is no deviation from the reference
+* b) No, because the values are in the 18000-20000 range
+* c) Yes, because the first value is one magnitude order larger than the others
+* d) Yes, because the last value is significantly lower than the first one
+
+23. The variance is a summary statistic used to:
+* a) Describe the central tendency of the distribution.
+* b) Describe the median of the distribution.
+* c) Describe the errors of a distribution.
+* d) Describe the variability of a distribution.
+
+24. What’s the correct formula of the mean statistic?
+* a) $\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i$
+* b) $\bar{x} = \frac{1}{n-1}\sum_{i=1}^{n}x_i$
+* c) $\bar{x} = \frac{1}{n}\sum_{i=1}^{n-1}x_i$
+* d) $\bar{x} = \frac{1}{n}\sum_{i=0}^{n}y_i$
+
+25. The standard deviation can be conceived as: (B)
+* a) The mean of the absolute differences from the mean.
+* b) The squared root of the variance.
+* c) The triple power of the variance.
+* d) The mean divided by the population size.
+
+In the following questions we will be using the dataset `mpg` from the seaborn package. Here is a sample:
+
+![mpg dataset](images/mpg.png)
+
+26. We want to create a binary variable where 1 represents to USA as ‘origin’ while 0 represents any other possibility. This variable will be encoded under the name ‘is_usa’. The correct prompt is:
+* a) `mpg[‘is_usa’] = (mpg.origin == ‘usa’) * 1`
+* b) `mpg[‘is_usa’] = ‘usa’ * 1`
+* c) `mpg[‘is_usa’] = ‘usa’ * 0`
+* d) `mpg[‘is_usa’] = (mpg.origin = ‘usa’) not in 'country'`
+
+27. Select the plot that shows the distribution of ‘horsepower’ for each ‘cylinder’:
+
+![(a)](images/hist_horsepower.png)
+![(b)](images/box_cylinders.png)
+![(c)](images/scatter_horsepower.png)
+
+* a) Left
+* b) Center
+* c) Right
+* d) None is correct
+
+28. Based on the above chart, what type of statistical relationship appears to be the one between the variable `horsepower` and `cylinder`? 
+* a) Non-linearly growing: horsepower increases with the number of cylinders.
+* b) Linearly decreasing: horsepower decreases with the numbers of cylinders since they are less efficient in distributing the power.
+* c) Normally distributed: horsepower reaches its peak at 80 cylinders.
+* d) Non-linearly growing: horsepower decreases from 50 to 225 as the number of cylinder increases.
+
+29. Is there a linear relationship between ‘mpg’ & ‘horsepower’ based on the charts ?
+* a) Yes, data follows a perfect linear trend.
+* b) No, data seems to follow a non-linear declining trend.
+* c) No, data follows an exponential uptrend.
+* d) Yes, since there is a constant decline on the miles per gallon as the horsepower increases.
+
+30. What distinguishes multiple linear regression from simple linear regression?
+* a) Multiple linear regression involves more than one independent variable, while simple linear regression involves only one.
+* b) Multiple linear regression is always more accurate than simple linear regression.
+* c) Simple linear regression can handle categorical variables, while multiple linear regression cannot.
+* d) Multiple linear regression does not work with small datasets.
+
+31. Now we want to study the impact of the variables `horsepower` and `acceleration` on the miles per galloon `mpg`. What formula would you use?
+* a) `acceleration ~ mpg + horsepower`
+* b) `horsepower ~ mpg + acceleration`
+* c) `mpg ~ horsepower + acceleration`
+* d) `y ~ mpg + horsepower + acceleration`
+
+32. 
