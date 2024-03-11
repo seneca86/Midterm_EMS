@@ -332,7 +332,7 @@ After training the model we have obtained the statistical summary shown in the f
 37. Based on the R-squared of the fitted model, which of the following statements is correct?
 * a) The R-squared value indicates that our model captures 0.63% of the relationship between variables
 * b) The R-squared value indicates that our model captures 63% of the relationship between variables
-* c) The R-squared value indicates that our model is significant with 63% condifence
+* c) The R-squared value indicates that our model is significant with 63% confidence
 * d) The R-squared value indicates that our model captures 63% of the variables that are relevant
 
 38. When we add meaningful, independent features to a multiple linear regression:
