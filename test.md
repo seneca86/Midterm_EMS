@@ -65,7 +65,7 @@ Below you can find a sample of the `diamonds` dataset:
 - d) Between `878.0` and `1810.0`
 
 8. Now we want to subset the dataset by the 2 first indexes. The command would be:
-- a) `diamonds.loc[0:2]`
+- a) `diamonds.list[0:2]`
 - b) `diamonds.query(“0:2”)`
 - c) `diamonds.iloc[0:2]`
 - d) `diamonds - 0:2`
