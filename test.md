@@ -14,11 +14,11 @@
 
 - a) Dividing the true positives by the true negatives
 - b) Dividing the true positives by the false positives
-- **_c) Dividing the sum of the true positives and the true negatives by the total number of cases_**
+- c) Dividing the sum of the true positives and the true negatives by the total number of cases
 - d) Dividing the sum of the false positives and the true negatives by the sum of the true negatives 
 
 2. Choose the right import statement of the ‘car_crashes’ dataset from the `seaborn` package:
-- **_a) `import seaborn as sns; df = sns.load_dataset('car_crashes')`_**
+- a) `import seaborn as sns; df = sns.load_dataset('car_crashes')`
 - b) `from seaborn import car_crashes`
 - c) `import seaborn as pd; car_crashes = sns.get_dataset_names('pandas')`
 - d) `import diamonds from seaborn`
