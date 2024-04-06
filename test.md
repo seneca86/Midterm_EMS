@@ -14,7 +14,7 @@
 
 - a) Dividing the true positives by the true negatives
 - b) Dividing the true positives by the false positives
-- c) Dividing the sum of the true positives and the true negatives by the total number of cases
+- **c) Dividing the sum of the true positives and the true negatives by the total number of cases**
 - d) Dividing the sum of the false positives and the true negatives by the sum of the true negatives 
 
 2. Choose the right import statement of the ‘car_crashes’ dataset from the `seaborn` package:
